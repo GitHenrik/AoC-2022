@@ -8,19 +8,6 @@ object Day3 {
         solvePartTwo(AdventSolver.getData(3))
     }
 
-    private fun solvePartTwo(data: MutableList<String>) {
-        var totalPriority = 0
-        val elfGroupList = data.chunked(3)
-        elfGroupList.forEach {
-            totalPriority += getPriority(
-                getSameItemFromElfGroup(
-                    it[0], it[1], it[2]
-                )
-            )
-        }
-        println(totalPriority) // 2522
-    }
-
     private fun getSameItemFromElfGroup(first: String, second: String, third: String): Char {
         return first.toCharArray().intersect(second.asIterable().toSet()).intersect(third.asIterable().toSet()).first()
     }
@@ -42,20 +29,21 @@ object Day3 {
     private fun solvePartOne(data: MutableList<String>) {
         var totalPriority = 0
         data.forEach { totalPriority += getPriority(findDuplicate(it)) }
-        println(totalPriority) // 8088
+        AdventSolver.printAnswer(3, 1, totalPriority) // 8088
     }
 
-    /*private fun findDuplicates(line: String): String {
-        val first = line.slice(0 until line.length / 2)
-        val second = line.slice(line.length / 2 until line.length)
-        var duplicates = ""
-        first.forEach {
-            if (second.contains(it)) {
-                duplicates += it
-            }
+    private fun solvePartTwo(data: MutableList<String>) {
+        var totalPriority = 0
+        val elfGroupList = data.chunked(3)
+        elfGroupList.forEach {
+            totalPriority += getPriority(
+                getSameItemFromElfGroup(
+                    it[0], it[1], it[2]
+                )
+            )
         }
-        return duplicates
-    }*/
+        AdventSolver.printAnswer(3, 2, totalPriority) // 2522
+    }
 
     private fun findDuplicate(line: String): Char {
         val first = line.slice(0 until line.length / 2)
@@ -67,12 +55,6 @@ object Day3 {
         }
         return '.'
     }
-
-    /*private fun calculatePriorities(duplicates: String): Int {
-        var priorityTotal = 0
-        duplicates.forEach { priorityTotal += getPriority(it) }
-        return priorityTotal
-    }*/
 
     private fun getPriority(item: Char): Int {
         return priorityMap.get(item)!!

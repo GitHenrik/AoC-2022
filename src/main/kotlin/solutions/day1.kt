@@ -20,11 +20,10 @@ object Day1 {
         }
         groupByElfLists.sortDescending()
         val maxCaloriesByElf = groupByElfLists.first()
-        println("The most that an elf is carrying is $maxCaloriesByElf calories worth of food")
+        AdventSolver.printAnswer(1, 1, maxCaloriesByElf)
 
         val topThreeCaloriesTotal = groupByElfLists.take(3).sum()
-        println("The top three Elves carrying the most Calories have a total of $topThreeCaloriesTotal calories")
-
+        AdventSolver.printAnswer(1, 2, topThreeCaloriesTotal)
         // correct answers: 70116, 206582
     }
 }

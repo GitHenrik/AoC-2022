@@ -1,5 +1,6 @@
 package solutions
 
+import utils.AdventSolver
 import utils.AdventSolver.getData
 
 class Day4 {
@@ -10,11 +11,14 @@ class Day4 {
         }
 
         private fun solvePartOne(data: MutableList<String>) {
-            // TODO
+            val first = data.first()
+
+            AdventSolver.printAnswer(4, 1, -1)
         }
 
         private fun solvePartTwo(data: MutableList<String>) {
             // TODO
+            AdventSolver.printAnswer(4, 2, -1)
         }
     }
 }

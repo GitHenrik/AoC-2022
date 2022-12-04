@@ -8,9 +8,9 @@ object Day2 {
         var pointsByShape = 0
         var pointsByResult = 0
         data.forEach { pointsByShape += pointsFromMatchByShape(it.first(), it.last()) }
-        println("Part 1: win with $pointsByShape points") // 11449
+        AdventSolver.printAnswer(2, 1, pointsByShape) // 11449
         data.forEach { pointsByResult += pointsFromMatchByResult(it.first(), it.last()) }
-        println("Part 2: win with $pointsByResult points") // 13187
+        AdventSolver.printAnswer(2, 2, pointsByResult) // 13187
     }
 
     fun pointsFromMatchByShape(opponent: Char, self: Char): Int {
