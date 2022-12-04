@@ -3,22 +3,43 @@ package solutions
 import utils.AdventSolver
 import utils.AdventSolver.getData
 
-class Day4 {
-    companion object {
-        fun run() {
-            solvePartOne(getData(4))
-            solvePartTwo(getData(4))
+object Day4 {
+    fun run() {
+        solve(getData(4))
+    }
+
+    private fun solve(data: MutableList<String>) {
+        var subsetCount = 0
+        var intersectionCount = 0
+        data.forEach {
+            val (firstElf, secondElf) = getPairBoundaries(it)
+            val firstElfBoudaries = getSectionBoundaries(firstElf)
+            val secondElfBoudaries = getSectionBoundaries(secondElf)
+            if (isSubset(firstElfBoudaries, secondElfBoudaries)) subsetCount++
+            if (hasIntersection(firstElfBoudaries, secondElfBoudaries)) intersectionCount++
         }
 
-        private fun solvePartOne(data: MutableList<String>) {
-            val first = data.first()
+        AdventSolver.printAnswer(4, 1, subsetCount) // 562
+        AdventSolver.printAnswer(4, 2, intersectionCount) // 924
+    }
 
-            AdventSolver.printAnswer(4, 1, -1)
-        }
+    private fun getSectionBoundaries(range: String): Pair<Int, Int> {
+        val boundaries = range.split('-')
+        return Pair(boundaries.first().toInt(), boundaries.last().toInt())
+    }
 
-        private fun solvePartTwo(data: MutableList<String>) {
-            // TODO
-            AdventSolver.printAnswer(4, 2, -1)
-        }
+    private fun getPairBoundaries(pairData: String): Pair<String, String> {
+        val boundaries = pairData.split(',')
+        return Pair(boundaries[0], boundaries[1])
+    }
+
+    private fun isSubset(a: Pair<Int, Int>, b: Pair<Int, Int>): Boolean {
+        return if (a.first >= b.first && a.second <= b.second) {
+            true
+        } else b.first >= a.first && b.second <= a.second
+    }
+
+    private fun hasIntersection(a: Pair<Int, Int>, b: Pair<Int, Int>): Boolean {
+        return !(a.second < b.first || b.second < a.first)
     }
 }
