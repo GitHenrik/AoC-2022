@@ -1,8 +1,8 @@
-package day1
+package solutions
 
 import utils.AdventSolver
 
-object Day01 {
+object Day1 {
     fun run() {
         solve(AdventSolver.getData(1))
     }

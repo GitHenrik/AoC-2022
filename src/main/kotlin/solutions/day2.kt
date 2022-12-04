@@ -1,8 +1,8 @@
-package day2
+package solutions
 
 import utils.AdventSolver
 
-object Day02 {
+object Day2 {
     fun run() {
         val data = AdventSolver.getData(2)
         var pointsByShape = 0

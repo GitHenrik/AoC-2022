@@ -1,8 +1,8 @@
-package day3
+package solutions
 
 import utils.AdventSolver
 
-object Day03 {
+object Day3 {
     fun run() {
         solvePartOne(AdventSolver.getData(3))
         solvePartTwo(AdventSolver.getData(3))

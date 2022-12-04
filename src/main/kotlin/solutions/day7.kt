@@ -2,11 +2,11 @@ package solutions
 
 import utils.AdventSolver.getData
 
-class Day4 {
+class Day7 {
     companion object {
         fun run() {
-            solvePartOne(getData(4))
-            solvePartTwo(getData(4))
+            solvePartOne(getData(7))
+            solvePartTwo(getData(7))
         }
 
         private fun solvePartOne(data: MutableList<String>) {

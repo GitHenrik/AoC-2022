@@ -1,13 +1,19 @@
-import day1.Day01
-import day2.Day02
-import day3.Day03
-import day4.Day04
+import solutions.Day1
+import solutions.Day2
+import solutions.Day3
+import solutions.Day4
+import solutions.Day5
+import solutions.Day6
+import solutions.Day7
 
 fun main(args: Array<String>) {
-    Day01.run()
-    Day02.run()
-    Day03.run()
-    Day04.run()
+    Day1.run()
+    Day2.run()
+    Day3.run()
+    Day4.run()
+    Day5.run()
+    Day6.run()
+    Day7.run()
 }
 
 
