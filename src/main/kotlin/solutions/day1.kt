@@ -1,10 +1,10 @@
-package day01
+package day1
 
-import AdventSolver
+import utils.AdventSolver
 
 object Day01 {
     fun run() {
-        solve(AdventSolver.read("src/main/kotlin/day01/day01-data.txt"))
+        solve(AdventSolver.getData(1))
     }
 
     private fun solve(data: MutableList<String>) {

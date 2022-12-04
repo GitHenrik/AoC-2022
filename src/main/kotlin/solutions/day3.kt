@@ -1,11 +1,11 @@
-package day03
+package day3
 
-import AdventSolver
+import utils.AdventSolver
 
 object Day03 {
     fun run() {
-        solvePartOne(AdventSolver.read("src/main/kotlin/day03/day03-data.txt"))
-        solvePartTwo(AdventSolver.read("src/main/kotlin/day03/day03-data.txt"))
+        solvePartOne(AdventSolver.getData(3))
+        solvePartTwo(AdventSolver.getData(3))
     }
 
     private fun solvePartTwo(data: MutableList<String>) {

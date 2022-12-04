@@ -1,11 +1,10 @@
-package day02
+package day2
 
-import java.io.File
+import utils.AdventSolver
 
 object Day02 {
     fun run() {
-        val data = mutableListOf<String>()
-        File("src/main/kotlin/day02/day02-data.txt").forEachLine { data.add(it) }
+        val data = AdventSolver.getData(2)
         var pointsByShape = 0
         var pointsByResult = 0
         data.forEach { pointsByShape += pointsFromMatchByShape(it.first(), it.last()) }
