@@ -2,21 +2,20 @@ package utils
 
 import utils.AdventSolver.getData
 
-class DayTemplate {
-    companion object {
-        fun run() {
-            solvePartOne(getData(0))
-            solvePartTwo(getData(0))
-        }
+object DayTemplate {
+    fun run() {
+        val data = getData(7)
+        solvePartOne(data)
+        solvePartTwo(data)
+    }
 
-        private fun solvePartOne(data: MutableList<String>) {
-            // TODO
-            AdventSolver.printAnswer(-1, 1, -1)
-        }
+    private fun solvePartOne(data: MutableList<String>) {
+        // TODO
+        AdventSolver.printAnswer(-1, 1, -1)
+    }
 
-        private fun solvePartTwo(data: MutableList<String>) {
-            // TODO
-            AdventSolver.printAnswer(-1, 2, -1)
-        }
+    private fun solvePartTwo(data: MutableList<String>) {
+        // TODO
+        AdventSolver.printAnswer(-1, 2, -1)
     }
 }

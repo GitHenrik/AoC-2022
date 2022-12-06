@@ -15,4 +15,8 @@ object AdventSolver {
     fun printAnswer(day: Int, part: Int, answer: Int) {
         println("Day $day, part $part: $answer")
     }
+
+    fun printAnswer(day: Int, part: Int, answer: String) {
+        println("Day $day, part $part: $answer")
+    }
 }
