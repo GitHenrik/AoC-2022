@@ -60,7 +60,79 @@ object Day8 {
     }
 
     private fun solvePartTwo(data: MutableList<String>) {
-        // TODO
-        AdventSolver.printAnswer(8, 2, -1)
+        /*val treeScores = mutableListOf<Int>()
+        for (row in 0 until data.size) {
+            for (column in 0 until data.first().length) {
+                treeScores.add(checkScore(data, row, column))
+            }
+        }*/
+        //
+        val maxTreeScore = data.flatMapIndexed { row, it -> it.mapIndexed { column, _ -> checkScore(data, row, column) } }.max()
+        AdventSolver.printAnswer(8, 2, maxTreeScore) // 480000
+    }
+
+    private fun checkScore(data: MutableList<String>, currentRow: Int, currentColumn: Int): Int {
+        return (
+            countUp(data, currentRow, currentColumn) *
+            countDown(data, currentRow, currentColumn) *
+            countLeft(data, currentRow, currentColumn) *
+            countRight(data, currentRow, currentColumn)
+        )
+    }
+
+    private fun countUp(data: MutableList<String>, currentRow: Int, currentColumn: Int): Int {
+        var visibleTrees = 0
+        val currentTreeHeight = data[currentRow][currentColumn].digitToInt()
+        for (row in currentRow - 1 downTo 0) {
+            if (data[row][currentColumn].digitToInt() >= currentTreeHeight) {
+                visibleTrees++
+                break
+            }
+            visibleTrees++
+        }
+        if (visibleTrees == 0) return 1 // edge case
+        return visibleTrees
+    }
+
+    private fun countDown(data: MutableList<String>, currentRow: Int, currentColumn: Int): Int {
+        var visibleTrees = 0
+        val currentTreeHeight = data[currentRow][currentColumn].digitToInt()
+        for (row in currentRow + 1 until data.size) {
+            if (data[row][currentColumn].digitToInt() >= currentTreeHeight) {
+                visibleTrees++
+                break
+            }
+            visibleTrees++
+        }
+        if (visibleTrees == 0) return 1 // edge case
+        return visibleTrees
+    }
+
+    private fun countLeft(data: MutableList<String>, currentRow: Int, currentColumn: Int): Int {
+        var visibleTrees = 0
+        val currentTreeHeight = data[currentRow][currentColumn].digitToInt()
+        for (column in currentColumn - 1 downTo 0) {
+            if (data[currentRow][column].digitToInt() >= currentTreeHeight) {
+                visibleTrees++
+                break
+            }
+            visibleTrees++
+        }
+        if (visibleTrees == 0) return 1 // edge case
+        return visibleTrees
+    }
+
+    private fun countRight(data: MutableList<String>, currentRow: Int, currentColumn: Int): Int {
+        var visibleTrees = 0
+        val currentTreeHeight = data[currentRow][currentColumn].digitToInt()
+        for (column in currentColumn + 1 until data.first().length) {
+            if (data[currentRow][column].digitToInt() >= currentTreeHeight) {
+                visibleTrees++
+                break
+            }
+            visibleTrees++
+        }
+        if (visibleTrees == 0) return 1 // edge case
+        return visibleTrees
     }
 }
