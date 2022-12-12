@@ -1,4 +1,5 @@
 import solutions.Day1
+import solutions.Day10
 import solutions.Day2
 import solutions.Day3
 import solutions.Day4
@@ -17,5 +18,6 @@ fun main(args: Array<String>) {
     //Day6.run()
     //Day7.run()
     //Day8.run()
-    Day9.run()
+    //Day9.run()
+    Day10.run()
 }
